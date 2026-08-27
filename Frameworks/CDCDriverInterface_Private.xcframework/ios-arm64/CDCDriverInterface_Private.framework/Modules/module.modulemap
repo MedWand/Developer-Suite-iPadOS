@@ -1,0 +1,4 @@
+framework module CDCDriverInterface_Private [system] {
+    header "CDCDriverInterface-Private-Bridging.h"
+    export *
+}

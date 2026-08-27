@@ -1,0 +1,12 @@
+// Template for License.swift, which is gitignored and must never be
+// committed. Copy this file to License.swift (same directory) and replace
+// both values below with your own MedWand-issued license and its matching
+// customer public key before building this app.
+//
+//     cp License.swift.example License.swift
+//
+// Contact MedWand to obtain a license for your organization.
+
+let mwSDKLicense: String = "REPLACE_WITH_YOUR_BASE64_LICENSE"
+
+let mwSDKPublicKey: String = "REPLACE_WITH_YOUR_BASE64_SPKI_PUBLIC_KEY"

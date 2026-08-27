@@ -1,0 +1,7 @@
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+DEVELOPMENT_TEAM = 4UU7YF3L7J
+ORGANIZATION_IDENTIFIER = com.medwand
+
+CODE_SIGN_IDENTITY = Apple Development
