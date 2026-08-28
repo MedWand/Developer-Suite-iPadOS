@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IOKitPersonalities</key>
+	<dict>
+		<key>CDCDriver - Medwand</key>
+		<dict>
+			<key>CFBundleDisplayName</key>
+			<string>MedWand USB Driver</string>
+			<key>CFBundleIdentifier</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+			<key>IOClass</key>
+			<string>IOUserService</string>
+			<key>IOProviderClass</key>
+			<string>IOUSBHostDevice</string>
+			<key>IOUserClass</key>
+			<string>CDCDriver</string>
+			<key>IOUserServerName</key>
+			<string>com.medwand.CDCDriver</string>
+			<key>UserClientProperties</key>
+			<dict>
+				<key>IOClass</key>
+				<string>IOUserUserClient</string>
+				<key>IOUserClass</key>
+				<string>CDCDriverClient</string>
+			</dict>
+			<key>bConfigurationValue</key>
+			<integer>1</integer>
+			<key>bInterfaceNumber</key>
+			<integer>0</integer>
+			<key>idProduct</key>
+			<integer>60</integer>
+			<key>idVendor</key>
+			<integer>2922</integer>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,11 @@
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Common.xcconfig"
+
+PRODUCT_BUNDLE_IDENTIFIER = $(ORGANIZATION_IDENTIFIER).CDC-Driver-Testbed.CDCDriver
+
+CODE_SIGN_ENTITLEMENTS = CDCDriver/CDCDriver iPadOS.entitlements
+CODE_SIGN_ENTITLEMENTS[sdk=macosx*] = CDCDriver/CDCDriver.entitlements
+
+PROVISIONING_PROFILE_SPECIFIER[sdk=driverkit*] = MedWand Functional Test CDCDriver

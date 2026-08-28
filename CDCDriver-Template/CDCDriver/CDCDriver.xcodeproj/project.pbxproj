@@ -1,0 +1,451 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5CAA44072CF785150043388B /* USBCDCInterface.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 9DDE63A329877A26005A2442 /* USBCDCInterface.hpp */; };
+		5CAA44082CF785150043388B /* ioreturn_strings.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D9554252BA298C000515D32 /* ioreturn_strings.h */; };
+		5CAA44092CF785150043388B /* DriverClientCommunicationTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D9554232BA298C000515D32 /* DriverClientCommunicationTypes.h */; };
+		5CAA440A2CF785150043388B /* Utilities.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 9D3F96F02996ECC200825F9B /* Utilities.hpp */; };
+		5CAA440C2CF785150043388B /* ioreturn_strings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D9554242BA298C000515D32 /* ioreturn_strings.cpp */; };
+		5CAA440D2CF785150043388B /* USBCDCInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DDE63A229877A26005A2442 /* USBCDCInterface.cpp */; };
+		5CAA440E2CF785150043388B /* CDCDriverClient.iig in Sources */ = {isa = PBXBuildFile; fileRef = 9D5D16E0299816F8008B461D /* CDCDriverClient.iig */; };
+		5CAA440F2CF785150043388B /* CDCDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DD338B4296A184700BF123B /* CDCDriver.cpp */; };
+		5CAA44102CF785150043388B /* CDCDriverClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D5D16E22998170D008B461D /* CDCDriverClient.cpp */; };
+		5CAA44112CF785150043388B /* Utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D3F96EF2996ECC200825F9B /* Utilities.cpp */; };
+		5CAA44122CF785150043388B /* CDCDriver.iig in Sources */ = {isa = PBXBuildFile; fileRef = 9DD338B6296A184700BF123B /* CDCDriver.iig */; };
+		5CAA44142CF785150043388B /* USBDriverKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD338C0296A185900BF123B /* USBDriverKit.framework */; };
+		5CAA44152CF785150043388B /* DriverKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD338B1296A184700BF123B /* DriverKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0AD474322B6D67230034CB50 /* CDCDriver iPadOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CDCDriver iPadOS.entitlements"; sourceTree = "<group>"; };
+		5C3294C82BF2C61E00126F3C /* CDCDriver iPadOS Release.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "CDCDriver iPadOS Release.entitlements"; sourceTree = "<group>"; };
+		5C3294C92BF2C70300126F3C /* CDCDriver Release.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "CDCDriver Release.entitlements"; sourceTree = "<group>"; };
+		5C8147673020DBC0004F44FD /* CDCDriver-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CDCDriver-Info.plist"; sourceTree = "<group>"; };
+		5CAA441A2CF785150043388B /* com.medwand.FunctionalTest.CDCDriver.dext */ = {isa = PBXFileReference; explicitFileType = "wrapper.driver-extension"; includeInIndex = 0; path = com.medwand.FunctionalTest.CDCDriver.dext; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D3F96EF2996ECC200825F9B /* Utilities.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Utilities.cpp; sourceTree = "<group>"; };
+		9D3F96F02996ECC200825F9B /* Utilities.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Utilities.hpp; sourceTree = "<group>"; };
+		9D5D16E0299816F8008B461D /* CDCDriverClient.iig */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.iig; path = CDCDriverClient.iig; sourceTree = "<group>"; };
+		9D5D16E22998170D008B461D /* CDCDriverClient.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CDCDriverClient.cpp; sourceTree = "<group>"; };
+		9D8D3F932B6B5B1500A50427 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.2.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = DEVELOPER_DIR; };
+		9D9554232BA298C000515D32 /* DriverClientCommunicationTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "include/CDCDriverInterface/DriverClientCommunicationTypes.h"; sourceTree = "<group>"; };
+		9D9554242BA298C000515D32 /* ioreturn_strings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ioreturn_strings.cpp; sourceTree = "<group>"; };
+		9D9554252BA298C000515D32 /* ioreturn_strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "include/CDCDriverInterface/ioreturn_strings.h"; sourceTree = "<group>"; };
+		9D9554392BA29ABD00515D32 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
+		9D9554492BA29AD400515D32 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		9D95547C2BA2C31500515D32 /* Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
+		9D95547F2BA2C31500515D32 /* Driver.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Driver.xcconfig; sourceTree = "<group>"; };
+		9DD338B1296A184700BF123B /* DriverKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DriverKit.framework; path = System/Library/Frameworks/DriverKit.framework; sourceTree = SDKROOT; };
+		9DD338B4296A184700BF123B /* CDCDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CDCDriver.cpp; sourceTree = "<group>"; };
+		9DD338B6296A184700BF123B /* CDCDriver.iig */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.iig; path = CDCDriver.iig; sourceTree = "<group>"; };
+		9DD338B8296A184700BF123B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DD338C0296A185900BF123B /* USBDriverKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = USBDriverKit.framework; path = Platforms/DriverKit.platform/Developer/SDKs/DriverKit22.2.sdk/System/DriverKit/System/Library/Frameworks/USBDriverKit.framework; sourceTree = DEVELOPER_DIR; };
+		9DD338C4296A18FA00BF123B /* CDCDriver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CDCDriver.entitlements; sourceTree = "<group>"; };
+		9DDE63A229877A26005A2442 /* USBCDCInterface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = USBCDCInterface.cpp; sourceTree = "<group>"; };
+		9DDE63A329877A26005A2442 /* USBCDCInterface.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = USBCDCInterface.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5CAA44132CF785150043388B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CAA44142CF785150043388B /* USBDriverKit.framework in Frameworks */,
+				5CAA44152CF785150043388B /* DriverKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9D9554222BA298C000515D32 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				9D9554232BA298C000515D32 /* DriverClientCommunicationTypes.h */,
+				9D9554242BA298C000515D32 /* ioreturn_strings.cpp */,
+				9D9554252BA298C000515D32 /* ioreturn_strings.h */,
+			);
+			name = Shared;
+			path = ../MedWandSDK/Sources/CDCDriverWireFormat;
+			sourceTree = "<group>";
+		};
+		9D95547B2BA2C31500515D32 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				9D95547C2BA2C31500515D32 /* Common.xcconfig */,
+				9D95547F2BA2C31500515D32 /* Driver.xcconfig */,
+			);
+			name = Configuration;
+			path = ../Configuration;
+			sourceTree = "<group>";
+		};
+		9DD3388F296A182800BF123B = {
+			isa = PBXGroup;
+			children = (
+				9DD338B3296A184700BF123B /* CDCDriver */,
+				9D9554222BA298C000515D32 /* Shared */,
+				9D95547B2BA2C31500515D32 /* Configuration */,
+				9DD338B0296A184700BF123B /* Frameworks */,
+				9DD33899296A182800BF123B /* Products */,
+				5C8147673020DBC0004F44FD /* CDCDriver-Info.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		9DD33899296A182800BF123B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5CAA441A2CF785150043388B /* com.medwand.FunctionalTest.CDCDriver.dext */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9DD338B0296A184700BF123B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D9554492BA29AD400515D32 /* Accelerate.framework */,
+				9D9554392BA29ABD00515D32 /* XcodeKit.framework */,
+				9D8D3F932B6B5B1500A50427 /* IOKit.framework */,
+				9DD338C0296A185900BF123B /* USBDriverKit.framework */,
+				9DD338B1296A184700BF123B /* DriverKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9DD338B3296A184700BF123B /* CDCDriver */ = {
+			isa = PBXGroup;
+			children = (
+				9DD338C4296A18FA00BF123B /* CDCDriver.entitlements */,
+				5C3294C92BF2C70300126F3C /* CDCDriver Release.entitlements */,
+				0AD474322B6D67230034CB50 /* CDCDriver iPadOS.entitlements */,
+				5C3294C82BF2C61E00126F3C /* CDCDriver iPadOS Release.entitlements */,
+				9DD338B6296A184700BF123B /* CDCDriver.iig */,
+				9DD338B4296A184700BF123B /* CDCDriver.cpp */,
+				9D5D16E0299816F8008B461D /* CDCDriverClient.iig */,
+				9D5D16E22998170D008B461D /* CDCDriverClient.cpp */,
+				9DDE63A329877A26005A2442 /* USBCDCInterface.hpp */,
+				9DDE63A229877A26005A2442 /* USBCDCInterface.cpp */,
+				9D3F96F02996ECC200825F9B /* Utilities.hpp */,
+				9D3F96EF2996ECC200825F9B /* Utilities.cpp */,
+				9DD338B8296A184700BF123B /* Info.plist */,
+			);
+			path = CDCDriver;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5CAA44062CF785150043388B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CAA44072CF785150043388B /* USBCDCInterface.hpp in Headers */,
+				5CAA44082CF785150043388B /* ioreturn_strings.h in Headers */,
+				5CAA44092CF785150043388B /* DriverClientCommunicationTypes.h in Headers */,
+				5CAA440A2CF785150043388B /* Utilities.hpp in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5CAA44052CF785150043388B /* CDCDriver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CAA44172CF785150043388B /* Build configuration list for PBXNativeTarget "CDCDriver" */;
+			buildPhases = (
+				5CAA44062CF785150043388B /* Headers */,
+				5CAA440B2CF785150043388B /* Sources */,
+				5CAA44132CF785150043388B /* Frameworks */,
+				5CAA44162CF785150043388B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CDCDriver;
+			productName = MyUserUSBInterfaceDriver;
+			productReference = 5CAA441A2CF785150043388B /* com.medwand.FunctionalTest.CDCDriver.dext */;
+			productType = "com.apple.product-type.driver-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9DD33890296A182800BF123B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 2700;
+			};
+			buildConfigurationList = 9DD33893296A182800BF123B /* Build configuration list for PBXProject "CDCDriver" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9DD3388F296A182800BF123B;
+			productRefGroup = 9DD33899296A182800BF123B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5CAA44052CF785150043388B /* CDCDriver */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5CAA44162CF785150043388B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5CAA440B2CF785150043388B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CAA440C2CF785150043388B /* ioreturn_strings.cpp in Sources */,
+				5CAA440D2CF785150043388B /* USBCDCInterface.cpp in Sources */,
+				5CAA440E2CF785150043388B /* CDCDriverClient.iig in Sources */,
+				5CAA440F2CF785150043388B /* CDCDriver.cpp in Sources */,
+				5CAA44102CF785150043388B /* CDCDriverClient.cpp in Sources */,
+				5CAA44112CF785150043388B /* Utilities.cpp in Sources */,
+				5CAA44122CF785150043388B /* CDCDriver.iig in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5CAA44182CF785150043388B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D95547F2BA2C31500515D32 /* Driver.xcconfig */;
+			buildSettings = {
+				AD_HOC_CODE_SIGNING_ALLOWED = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4UU7YF3L7J;
+				DRIVERKIT_DEPLOYMENT_TARGET = 25.0;
+				ENABLE_CODE_COVERAGE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/System/DriverKit/System/Library/Frameworks",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CDCDriver-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MedWand USB Driver";
+				INFOPLIST_KEY_OSBundleUsageDescription = "USB CDC ACM Driver";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.medwand.FunctionalTest.CDCDriver;
+				PRODUCT_NAME = com.medwand.FunctionalTest.CDCDriver;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = driverkit;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		5CAA44192CF785150043388B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D95547F2BA2C31500515D32 /* Driver.xcconfig */;
+			buildSettings = {
+				AD_HOC_CODE_SIGNING_ALLOWED = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_ENTITLEMENTS = "CDCDriver/CDCDriver iPadOS Release.entitlements";
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "CDCDriver/CDCDriver Release.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=driverkit*]" = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				"DEVELOPMENT_TEAM[sdk=driverkit*]" = 4UU7YF3L7J;
+				DRIVERKIT_DEPLOYMENT_TARGET = 25.0;
+				ENABLE_CODE_COVERAGE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/System/DriverKit/System/Library/Frameworks",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CDCDriver-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MedWand USB Driver";
+				INFOPLIST_KEY_OSBundleUsageDescription = "USB CDC ACM Driver";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.medwand.FunctionalTest.CDCDriver;
+				PRODUCT_NAME = com.medwand.FunctionalTest.CDCDriver;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=driverkit*]" = "MedWand SDK Functional Test CDCDrvier";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = driverkit;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+		9DD338A5296A182900BF123B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-Wno-c99-designator",
+				);
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9DD338A6296A182900BF123B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-Wno-c99-designator",
+				);
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5CAA44172CF785150043388B /* Build configuration list for PBXNativeTarget "CDCDriver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CAA44182CF785150043388B /* Debug */,
+				5CAA44192CF785150043388B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DD33893296A182800BF123B /* Build configuration list for PBXProject "CDCDriver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DD338A5296A182900BF123B /* Debug */,
+				9DD338A6296A182900BF123B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9DD33890296A182800BF123B /* Project object */;
+}

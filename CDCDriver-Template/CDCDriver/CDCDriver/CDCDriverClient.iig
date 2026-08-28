@@ -1,0 +1,50 @@
+// ---------------------------------------------------------------------------
+// MedWand CDCDriver — driver implementation. DO NOT MODIFY.
+//
+// This file implements the actual USB CDC device protocol handling and is
+// paired with a specific MedWandSDK release (see MEDWAND-TEMPLATE-README.md
+// in the repo root). Changes here can silently break wire-protocol
+// compatibility with MedWandSDK, or the ability to claim the real MedWand
+// USB hardware.
+//
+// Settings that ARE meant to be reconfigured for your own app (bundle
+// identifier, team, provisioning, entitlements) live in
+// CDCDriver.xcodeproj's build settings and Configuration/Common.xcconfig,
+// not in this file — see MEDWAND-TEMPLATE-README.md for the exact list.
+// ---------------------------------------------------------------------------
+
+#ifndef DriverClient_h
+#define DriverClient_h
+
+#include <DriverKit/IOUserClient.iig>
+#include <DriverKit/IOBufferMemoryDescriptor.h>
+
+class USBCDCInterface;
+
+class CDCDriverClient: public IOUserClient
+{
+public:
+    virtual bool init() override;
+    virtual kern_return_t Start(IOService *provider) override;
+    virtual kern_return_t Stop(IOService *provider) override;
+    virtual void free() override;
+
+    USBCDCInterface *getInterface() LOCALONLY;
+    void setInterface(USBCDCInterface *interface) LOCALONLY;
+
+    void dataWasReceived(IOBufferMemoryDescriptor *bufferDescriptor, uint64_t actualByteCount) LOCALONLY;
+    
+    virtual kern_return_t CopyClientMemoryForType(uint64_t type, uint64_t *options, IOMemoryDescriptor **memory) override;
+
+    virtual kern_return_t ExternalMethod(uint64_t selector, IOUserClientMethodArguments* arguments, const IOUserClientMethodDispatch* dispatch, OSObject* target, void* reference) override;
+    
+protected:    
+    // Provide a means to register our async callback with the dext.
+    static kern_return_t StaticRegisterReceivedDataCallback(OSObject* target, void* reference, IOUserClientMethodArguments* arguments) LOCALONLY;
+    kern_return_t RegisterReceivedDataCallback(void* reference, IOUserClientMethodArguments* arguments) LOCALONLY;
+    
+    static kern_return_t StaticHandleSendData(OSObject* target, void* reference, IOUserClientMethodArguments* arguments) LOCALONLY;
+    kern_return_t HandleSendData(void* reference, IOUserClientMethodArguments* arguments) LOCALONLY;
+};
+
+#endif /* DriverClient_h */
