@@ -1,11 +1,3 @@
-//
-//  DriverClientCommunicationTypes.h
-//  CDC Driver Testbed
-//
-//  Created by Andrew Madsen on 01/16/24.
-//  Copyright © 2024 Medwand, Inc. All rights reserved.
-//
-
 #import <stdint.h>
 
 #ifndef DriverClientCommunicationTypes_h

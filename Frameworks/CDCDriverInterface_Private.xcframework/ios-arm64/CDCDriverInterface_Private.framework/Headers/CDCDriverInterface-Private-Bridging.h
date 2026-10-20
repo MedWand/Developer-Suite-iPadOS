@@ -1,10 +1,3 @@
-//
-//  CDCDriverInterface-Private-Bridging.h
-//  CDCDriverInterface
-//
-//  Created by Andrew R Madsen on 3/11/24.
-//
-
 #ifndef CDCDriverInterface_Private_Bridging_h
 #define CDCDriverInterface_Private_Bridging_h
 

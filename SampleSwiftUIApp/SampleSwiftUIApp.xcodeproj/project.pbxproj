@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		059876B81A7921F7E98AC334 /* StartupNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B1F44E4710C5A5E1E3DA17 /* StartupNoticeView.swift */; };
+		17FE1A80EC0CE7EE70BE3468 /* MedWandSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 5805242961D94609B6E851C7 /* MedWandSDK */; };
+		1FBB12D6FBFFF6FE8A1C976B /* License.swift.example in Resources */ = {isa = PBXBuildFile; fileRef = 38E39C5133AA1CD976D38CA5 /* License.swift.example */; };
+		2528553522475005AB7184E6 /* SampleSwiftUIAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD72DE094758A809924DCAB /* SampleSwiftUIAppApp.swift */; };
+		284B1583415C93309DCA4BBB /* PulseOximeterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E01D6EAE606EA59EC50FF /* PulseOximeterView.swift */; };
+		40CC36D8A600AF7020DEB166 /* StethoscopeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB32486DB5B0023CE6DD40E0 /* StethoscopeView.swift */; };
+		4C4A0289603A6CA7371C10A0 /* EcgViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C2473D1BD328703C0E1917 /* EcgViewModel.swift */; };
+		52631EE8A97E6999D5729BD5 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B3696553C00FB059EE076F /* License.swift */; };
+		60C0E2B73333118F8E0E4EE5 /* SimpleSensorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913C3F4162BAF10C69884BAC /* SimpleSensorViewModel.swift */; };
+		6A0045BE8B60110900B077A6 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C9F03C2E5653D0A2FDD4 /* AppViewModel.swift */; };
+		74B7FD08F777A8A2874C40AA /* EcgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9CDADA34E84C7E908E5807 /* EcgView.swift */; };
+		7C3323F4DB782D4CD1246A03 /* MyUserUSBInterfaceDriver.dext in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = 9E8521FD233F99DA3B2C3FB0 /* MyUserUSBInterfaceDriver.dext */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9B443C53D0723FD26A36D9C9 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428B67657F37AE98B3D2331 /* CameraView.swift */; };
+		A6726C12F5809278435E9D88 /* Workflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831928C25D9358F1F668FABD /* Workflow.swift */; };
+		C297ECDE76B9B640287A347D /* ECGWaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8884A0BA4500ABBD0696F /* ECGWaveformView.swift */; };
+		C3F2E76A4974FF3B0436760F /* StethoscopeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9819EFDF863226E2A145EF0C /* StethoscopeViewModel.swift */; };
+		C6B141E6703334CB6CCD8D47 /* ActionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6502BD6DAC32A6BB6D476E7 /* ActionState.swift */; };
+		D464C17E606E23307B8CBFE7 /* AndroidPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123B590E8E2ED2482A3E0AA1 /* AndroidPalette.swift */; };
+		D77390CD24A6E71FA4D5C957 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4D366C6E44CC7C5A7C426 /* CameraViewModel.swift */; };
+		E729BB7D6D814D260522E78B /* ThermometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804776665639B280B298A600 /* ThermometerView.swift */; };
+		EE199B8E0E2D9C1AE82604C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95C4B5C30B5DCD321BDC83F /* ContentView.swift */; };
+		F94331261B99C83ACC0708F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 498BF71381AD96AD6276CC57 /* Assets.xcassets */; };
+		FA5B60F86BE7D57902497F86 /* WorkflowScaffold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D371A019CE397D69078BA50 /* WorkflowScaffold.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		604206AD0974800D3CCC7F2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B69D2AA2EFE8F0E7525FA100 /* CDCDriver.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CAA44052CF785150043388B;
+			remoteInfo = CDCDriver;
+		};
+		656DC5D97E9EBF7D1A14169F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B69D2AA2EFE8F0E7525FA100 /* CDCDriver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5CAA441A2CF785150043388B;
+			remoteInfo = CDCDriver;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		07F1EB11B74FC9346C5E52DF /* Embed System Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(SYSTEM_EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+				7C3323F4DB782D4CD1246A03 /* MyUserUSBInterfaceDriver.dext in Embed System Extensions */,
+			);
+			name = "Embed System Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0428B67657F37AE98B3D2331 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		07202CBC8F32F5EC0F1B93EA /* SampleSwiftUIApp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SampleSwiftUIApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		10A8884A0BA4500ABBD0696F /* ECGWaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGWaveformView.swift; sourceTree = "<group>"; };
+		123B590E8E2ED2482A3E0AA1 /* AndroidPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndroidPalette.swift; sourceTree = "<group>"; };
+		1D371A019CE397D69078BA50 /* WorkflowScaffold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowScaffold.swift; sourceTree = "<group>"; };
+		2BD72DE094758A809924DCAB /* SampleSwiftUIAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSwiftUIAppApp.swift; sourceTree = "<group>"; };
+		33B1F44E4710C5A5E1E3DA17 /* StartupNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupNoticeView.swift; sourceTree = "<group>"; };
+		38E39C5133AA1CD976D38CA5 /* License.swift.example */ = {isa = PBXFileReference; path = License.swift.example; sourceTree = "<group>"; };
+		498BF71381AD96AD6276CC57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4CC4D366C6E44CC7C5A7C426 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		770E01D6EAE606EA59EC50FF /* PulseOximeterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseOximeterView.swift; sourceTree = "<group>"; };
+		804776665639B280B298A600 /* ThermometerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermometerView.swift; sourceTree = "<group>"; };
+		80C2473D1BD328703C0E1917 /* EcgViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcgViewModel.swift; sourceTree = "<group>"; };
+		831928C25D9358F1F668FABD /* Workflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflow.swift; sourceTree = "<group>"; };
+		8E9CDADA34E84C7E908E5807 /* EcgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcgView.swift; sourceTree = "<group>"; };
+		913C3F4162BAF10C69884BAC /* SimpleSensorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSensorViewModel.swift; sourceTree = "<group>"; };
+		9819EFDF863226E2A145EF0C /* StethoscopeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StethoscopeViewModel.swift; sourceTree = "<group>"; };
+		A95C4B5C30B5DCD321BDC83F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B69D2AA2EFE8F0E7525FA100 /* CDCDriver */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CDCDriver; path = ../CDCDriver/CDCDriver.xcodeproj; sourceTree = "<group>"; };
+		CF49C9F03C2E5653D0A2FDD4 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		F6502BD6DAC32A6BB6D476E7 /* ActionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionState.swift; sourceTree = "<group>"; };
+		F9B3696553C00FB059EE076F /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		FB32486DB5B0023CE6DD40E0 /* StethoscopeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StethoscopeView.swift; sourceTree = "<group>"; };
+		FBE6C8CF0383FDF7D4B7397F /* MedWandSDK-Distribution */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "MedWandSDK-Distribution"; path = ..; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		210814EAC6D510EBA64D2249 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17FE1A80EC0CE7EE70BE3468 /* MedWandSDK in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		30C994A0728C544ED12D41C6 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				FBE6C8CF0383FDF7D4B7397F /* MedWandSDK-Distribution */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		7CD4B41CEC9E474F489B45E6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0428B67657F37AE98B3D2331 /* CameraView.swift */,
+				A95C4B5C30B5DCD321BDC83F /* ContentView.swift */,
+				8E9CDADA34E84C7E908E5807 /* EcgView.swift */,
+				10A8884A0BA4500ABBD0696F /* ECGWaveformView.swift */,
+				770E01D6EAE606EA59EC50FF /* PulseOximeterView.swift */,
+				33B1F44E4710C5A5E1E3DA17 /* StartupNoticeView.swift */,
+				FB32486DB5B0023CE6DD40E0 /* StethoscopeView.swift */,
+				804776665639B280B298A600 /* ThermometerView.swift */,
+				1D371A019CE397D69078BA50 /* WorkflowScaffold.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8D1FB6F7BE88F7C1E303885A /* SampleSwiftUIApp */ = {
+			isa = PBXGroup;
+			children = (
+				123B590E8E2ED2482A3E0AA1 /* AndroidPalette.swift */,
+				CF49C9F03C2E5653D0A2FDD4 /* AppViewModel.swift */,
+				498BF71381AD96AD6276CC57 /* Assets.xcassets */,
+				F9B3696553C00FB059EE076F /* License.swift */,
+				38E39C5133AA1CD976D38CA5 /* License.swift.example */,
+				2BD72DE094758A809924DCAB /* SampleSwiftUIAppApp.swift */,
+				FAF57009D19568A24899E3DC /* Models */,
+				DA6D8D707A81641DB9A3F201 /* ViewModels */,
+				7CD4B41CEC9E474F489B45E6 /* Views */,
+			);
+			path = SampleSwiftUIApp;
+			sourceTree = "<group>";
+		};
+		8E89CDBF83A48B05B908CA6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				07202CBC8F32F5EC0F1B93EA /* SampleSwiftUIApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B03CC461F20F7E8BA2482216 /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				B69D2AA2EFE8F0E7525FA100 /* CDCDriver */,
+			);
+			name = Projects;
+			sourceTree = "<group>";
+		};
+		B8113E25E3CD3EC0D9B817ED = {
+			isa = PBXGroup;
+			children = (
+				30C994A0728C544ED12D41C6 /* Packages */,
+				8D1FB6F7BE88F7C1E303885A /* SampleSwiftUIApp */,
+				8E89CDBF83A48B05B908CA6D /* Products */,
+				B03CC461F20F7E8BA2482216 /* Projects */,
+			);
+			sourceTree = "<group>";
+		};
+		C36B4F63A446D6FFB8EE65CC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9E8521FD233F99DA3B2C3FB0 /* MyUserUSBInterfaceDriver.dext */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA6D8D707A81641DB9A3F201 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4CC4D366C6E44CC7C5A7C426 /* CameraViewModel.swift */,
+				80C2473D1BD328703C0E1917 /* EcgViewModel.swift */,
+				913C3F4162BAF10C69884BAC /* SimpleSensorViewModel.swift */,
+				9819EFDF863226E2A145EF0C /* StethoscopeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FAF57009D19568A24899E3DC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F6502BD6DAC32A6BB6D476E7 /* ActionState.swift */,
+				831928C25D9358F1F668FABD /* Workflow.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E5167D53CE41CE1BC6ABCD33 /* SampleSwiftUIApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85278C987551E8F2789B9EF7 /* Build configuration list for PBXNativeTarget "SampleSwiftUIApp" */;
+			buildPhases = (
+				8E6FF2383AB6994512FFF1D5 /* Sources */,
+				DD366093B9CB137B41424AA2 /* Resources */,
+				210814EAC6D510EBA64D2249 /* Frameworks */,
+				07F1EB11B74FC9346C5E52DF /* Embed System Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				33D1C0DB5E2E119A7CC90018 /* PBXTargetDependency */,
+			);
+			name = SampleSwiftUIApp;
+			packageProductDependencies = (
+				5805242961D94609B6E851C7 /* MedWandSDK */,
+			);
+			productName = SampleSwiftUIApp;
+			productReference = 07202CBC8F32F5EC0F1B93EA /* SampleSwiftUIApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FC3507CBC3810F7F9F1F0A5D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					E5167D53CE41CE1BC6ABCD33 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = FBDBD8CD3DC305825F62A5ED /* Build configuration list for PBXProject "SampleSwiftUIApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = B8113E25E3CD3EC0D9B817ED;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C295A81DF371963519F0C0EC /* XCLocalSwiftPackageReference ".." */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 8E89CDBF83A48B05B908CA6D /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C36B4F63A446D6FFB8EE65CC /* Products */;
+					ProjectRef = B69D2AA2EFE8F0E7525FA100 /* CDCDriver */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				E5167D53CE41CE1BC6ABCD33 /* SampleSwiftUIApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9E8521FD233F99DA3B2C3FB0 /* MyUserUSBInterfaceDriver.dext */ = {
+			isa = PBXReferenceProxy;
+			fileType = "wrapper.driver-extension";
+			path = MyUserUSBInterfaceDriver.dext;
+			remoteRef = 656DC5D97E9EBF7D1A14169F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD366093B9CB137B41424AA2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F94331261B99C83ACC0708F3 /* Assets.xcassets in Resources */,
+				1FBB12D6FBFFF6FE8A1C976B /* License.swift.example in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8E6FF2383AB6994512FFF1D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6B141E6703334CB6CCD8D47 /* ActionState.swift in Sources */,
+				D464C17E606E23307B8CBFE7 /* AndroidPalette.swift in Sources */,
+				6A0045BE8B60110900B077A6 /* AppViewModel.swift in Sources */,
+				9B443C53D0723FD26A36D9C9 /* CameraView.swift in Sources */,
+				D77390CD24A6E71FA4D5C957 /* CameraViewModel.swift in Sources */,
+				EE199B8E0E2D9C1AE82604C9 /* ContentView.swift in Sources */,
+				C297ECDE76B9B640287A347D /* ECGWaveformView.swift in Sources */,
+				74B7FD08F777A8A2874C40AA /* EcgView.swift in Sources */,
+				4C4A0289603A6CA7371C10A0 /* EcgViewModel.swift in Sources */,
+				52631EE8A97E6999D5729BD5 /* License.swift in Sources */,
+				284B1583415C93309DCA4BBB /* PulseOximeterView.swift in Sources */,
+				2528553522475005AB7184E6 /* SampleSwiftUIAppApp.swift in Sources */,
+				60C0E2B73333118F8E0E4EE5 /* SimpleSensorViewModel.swift in Sources */,
+				059876B81A7921F7E98AC334 /* StartupNoticeView.swift in Sources */,
+				40CC36D8A600AF7020DEB166 /* StethoscopeView.swift in Sources */,
+				C3F2E76A4974FF3B0436760F /* StethoscopeViewModel.swift in Sources */,
+				E729BB7D6D814D260522E78B /* ThermometerView.swift in Sources */,
+				A6726C12F5809278435E9D88 /* Workflow.swift in Sources */,
+				FA5B60F86BE7D57902497F86 /* WorkflowScaffold.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		33D1C0DB5E2E119A7CC90018 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CDCDriver;
+			targetProxy = 604206AD0974800D3CCC7F2C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		43866DE0447BB339EA3E0647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A17997416EDD84A2BECA4D0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SampleSwiftUIApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Developer Suite";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Developer Suite uses the camera to preview and capture otoscope and dermatoscope images from a connected MedWand.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Developer Suite uses the microphone path to capture stethoscope audio from a connected MedWand.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.medwand.SampleSwiftUIApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		A330FE6D8665FF12008F3D85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		CD4E3C4303BA023BB4E9FC53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SampleSwiftUIApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Developer Suite";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Developer Suite uses the camera to preview and capture otoscope and dermatoscope images from a connected MedWand.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Developer Suite uses the microphone path to capture stethoscope audio from a connected MedWand.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.medwand.SampleSwiftUIApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		85278C987551E8F2789B9EF7 /* Build configuration list for PBXNativeTarget "SampleSwiftUIApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A17997416EDD84A2BECA4D0F /* Debug */,
+				CD4E3C4303BA023BB4E9FC53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FBDBD8CD3DC305825F62A5ED /* Build configuration list for PBXProject "SampleSwiftUIApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43866DE0447BB339EA3E0647 /* Debug */,
+				A330FE6D8665FF12008F3D85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		C295A81DF371963519F0C0EC /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5805242961D94609B6E851C7 /* MedWandSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MedWandSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = FC3507CBC3810F7F9F1F0A5D /* Project object */;
+}

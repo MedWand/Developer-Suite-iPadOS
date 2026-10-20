@@ -1,6 +1,6 @@
 # Third-Party Notices
 
-MedWandSDK's compiled binary statically links a copy of swift-nio's `NIOCore` module. swift-nio is licensed under the Apache License, Version 2.0. Its notices and full license text are reproduced below, unmodified, as required by that license.
+MedWandSDK's compiled binary statically links a copy of swift-nio's `NIOCore` module (swift-nio is also a normal external dependency of this package's own `Package.swift` — that resolution is separate from, and in addition to, the compiled copy already inside `MedWandSDK.xcframework`). swift-nio is licensed under the Apache License, Version 2.0. Its notices and full license text are reproduced below, unmodified, as required by that license.
 
 ---
 

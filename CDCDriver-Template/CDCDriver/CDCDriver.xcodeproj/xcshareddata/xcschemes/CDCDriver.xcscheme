@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5CAA44052CF785150043388B"
-               BuildableName = "com.medwand.FunctionalTest.CDCDriver.dext"
+               BuildableName = "com.example.YourApp.CDCDriver.dext"
                BlueprintName = "CDCDriver"
                ReferencedContainer = "container:CDCDriver.xcodeproj">
             </BuildableReference>
@@ -51,7 +51,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5CAA44052CF785150043388B"
-            BuildableName = "com.medwand.FunctionalTest.CDCDriver.dext"
+            BuildableName = "com.example.YourApp.CDCDriver.dext"
             BlueprintName = "CDCDriver"
             ReferencedContainer = "container:CDCDriver.xcodeproj">
          </BuildableReference>
