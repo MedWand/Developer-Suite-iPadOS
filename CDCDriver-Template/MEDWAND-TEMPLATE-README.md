@@ -26,10 +26,10 @@ Also do not change these specific fields, wherever they appear (`CDCDriver-Info.
 
 **Important:** `Configuration/Common.xcconfig` defines `DEVELOPMENT_TEAM` and `ORGANIZATION_IDENTIFIER`, but for this target those values are *overridden* by settings written directly on the target in `CDCDriver.xcodeproj` — editing the xcconfig alone will not change what actually gets signed. Make these changes in Xcode itself (Signing & Capabilities tab, and Build Settings tab, for **both** Debug and Release configurations):
 
-- **`PRODUCT_BUNDLE_IDENTIFIER`** — currently `com.medwand.FunctionalTest.CDCDriver`. Change to `<your-app's-bundle-id>.CDCDriver` (it must be nested under your own app's bundle identifier — this is an Apple system-extension requirement, not a MedWand convention).
+- **`PRODUCT_BUNDLE_IDENTIFIER`** — currently the placeholder `com.example.YourApp.CDCDriver`. Change to `<your-app's-bundle-id>.CDCDriver` (it must be nested under your own app's bundle identifier — this is an Apple system-extension requirement, not a MedWand convention). Until you do, embedding the driver in your app fails with "Embedded binary's bundle identifier is not prefixed with the parent app's bundle identifier".
 - **`PRODUCT_NAME`** — currently matches the bundle identifier string; update it alongside the bundle ID for consistency (cosmetic — Xcode names the built `.dext` from this, but won't fail to build if you skip it).
-- **`DEVELOPMENT_TEAM`** — currently `4UU7YF3L7J` (MedWand's team). Change to your own Apple Developer team ID, in both the Debug config and the Release config's `DEVELOPMENT_TEAM[sdk=driverkit*]` variant.
-- **`PROVISIONING_PROFILE_SPECIFIER[sdk=driverkit*]`** (Release only) — currently references a MedWand-only profile name. Either point it at your own provisioning profile, or switch Release to Automatic signing (Debug already uses Automatic — this is the simpler option if you don't need a specific manual profile).
+- **`DEVELOPMENT_TEAM`** — currently empty. Set it to your own Apple Developer team ID (Xcode's Signing & Capabilities tab offers your teams), in both the Debug config and the Release config's `DEVELOPMENT_TEAM[sdk=driverkit*]` variant. Until you do, the build stops with "Signing for CDCDriver requires a development team".
+- **`PROVISIONING_PROFILE_SPECIFIER[sdk=driverkit*]`** (Release only) — currently empty, which means Automatic signing, as in Debug. Set it to the name of your own provisioning profile only if you need a specific manual profile.
 
 The static product-name strings in the Xcode project navigator (the `Products` group entry, and the scheme's `BuildableName`) are cosmetic — Xcode resolves the real build product from `PRODUCT_NAME` at build time regardless of what those display strings say, so there's no need to hunt them down and edit them by hand.
 
@@ -45,20 +45,26 @@ The static product-name strings in the Xcode project navigator (the `Products` g
 ```xml
 <key>com.apple.developer.driverkit.userclient-access</key>
 <array>
-    <string>com.medwand.FunctionalTest</string>
+    <string>com.example.YourApp</string>
 </array>
 ```
 
-If you're shipping a macOS companion app, change `com.medwand.FunctionalTest` to your own app's bundle identifier — this is the allowlist of client bundle IDs permitted to open a user client to the driver on macOS.
+If you're shipping a macOS companion app, change the placeholder `com.example.YourApp` to your own app's bundle identifier — this is the allowlist of client bundle IDs permitted to open a user client to the driver on macOS.
 
 **The iPadOS entitlements files (`CDCDriver iPadOS.entitlements`, `CDCDriver iPadOS Release.entitlements`) have no equivalent key and need no change here** — iPadOS uses a different model: your *app* (not the driver) requests the "Communicates With Drivers" capability in Xcode's Signing & Capabilities pane. If you're iPadOS-only, this section doesn't apply to you at all.
 
 ### 4. Optional branding (not required, no functional effect)
 
 - `INFOPLIST_KEY_CFBundleDisplayName` (currently "MedWand USB Driver") — shown to end users in Settings → Privacy & Security → System Extensions.
-- `IOUserServerName` (currently `com.medwand.CDCDriver`, in both `CDCDriver-Info.plist` and `CDCDriver/Info.plist`) — an internal identifier for the driver's user-space server process. Not required to change, but using your own reverse-DNS string avoids any (unlikely) collision if a user's device also runs an actual MedWand app.
+- `IOUserServerName` (currently `com.medwand.CDCDriver`, in both `CDCDriver-Info.plist` and `CDCDriver/Info.plist`) — an internal identifier for the driver's user-space server process. Not required to change; it does not affect the service-name limitation described below.
 
 `CFBundleIdentifier` inside the `IOKitPersonalities` dictionaries in both `Info.plist` files is already parameterized as `$(PRODUCT_BUNDLE_IDENTIFIER)` — it follows your bundle identifier change from §1 automatically; no manual edit needed.
+
+## Known limitation: one template-built driver per device
+
+Every driver built from this template publishes the same IOKit service name, `MedwandCDCDriver` (set in `CDCDriver.cpp`, which you must not modify), and the same `IOUserServerName`. If two apps from different Apple Developer teams, each embedding its own copy of this driver, are installed on one iPad, both drivers match the MedWand hardware and only one of them is launched. The app whose driver was not launched finds the other team's service, and opening it fails with `kIOReturnNotPermitted` (`0xE00002E2`), because DriverKit refuses a user client from a different team.
+
+Until this is addressed in a future release: keep only one app that embeds a driver built from this template on a given device, or, when you see that error, delete the other app and restart the iPad. Changing `IOUserServerName` (§4) does not change which service the SDK looks for.
 
 ## Directory layout
 
@@ -76,6 +82,6 @@ The `MedWandSDK/Sources/...` nesting looks unusual for a standalone template —
 1. Make the changes in §1 above (bundle ID, team, provisioning) for both Debug and Release.
 2. Request and wait for the DriverKit entitlements in §2, under your own Apple Developer team.
 3. If shipping macOS too, update the entitlement in §3.
-4. Build `CDCDriver.xcodeproj`, embed the resulting `.dext` in your own app's target (a copy-files build phase into `SystemExtensions`, matching how `FunctionalTest` embeds this same driver internally).
+4. Build `CDCDriver.xcodeproj`, embed the resulting `.dext` in your own app's target (a copy-files build phase into `SystemExtensions`, as `SampleSwiftUIApp` in this repository does).
 5. Add the "Communicates With Drivers" capability to your app's own target (Signing & Capabilities → search "communicates with drivers").
 6. Link `MedWandSDK` (see the top-level repo README) and use `CDCDriverInterface`'s client API to open the user client — you do not write any DriverKit code in your app itself.

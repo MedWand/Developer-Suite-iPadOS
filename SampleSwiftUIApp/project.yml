@@ -1,0 +1,51 @@
+name: SampleSwiftUIApp
+options:
+  bundleIdPrefix: com.medwand
+  deploymentTarget:
+    iOS: "18.6"
+
+packages:
+  MedWandSDK:
+    path: ..
+
+projectReferences:
+  CDCDriver:
+    path: ../CDCDriver/CDCDriver.xcodeproj
+
+targets:
+  SampleSwiftUIApp:
+    type: application
+    platform: iOS
+    sources:
+      - SampleSwiftUIApp
+    dependencies:
+      - package: MedWandSDK
+        product: MedWandSDK
+      - target: CDCDriver/CDCDriver
+        embed: true
+        codeSign: false
+        removeHeaders: true
+    settings:
+      base:
+        DEVELOPMENT_TEAM: ""
+        IPHONEOS_DEPLOYMENT_TARGET: "18.6"
+        SWIFT_VERSION: "6.0"
+        SWIFT_STRICT_CONCURRENCY: complete
+        SWIFT_OBJC_INTEROP_MODE: objcxx
+        TARGETED_DEVICE_FAMILY: "2"
+        PRODUCT_BUNDLE_IDENTIFIER: com.medwand.SampleSwiftUIApp
+        PRODUCT_NAME: "$(TARGET_NAME)"
+        MARKETING_VERSION: 1.0.0
+        CURRENT_PROJECT_VERSION: 1
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_ENTITLEMENTS: SampleSwiftUIApp.entitlements
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: "Developer Suite"
+        INFOPLIST_KEY_LSApplicationCategoryType: "public.app-category.developer-tools"
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown"
+        INFOPLIST_KEY_NSCameraUsageDescription: "Developer Suite uses the camera to preview and capture otoscope and dermatoscope images from a connected MedWand."
+        INFOPLIST_KEY_NSMicrophoneUsageDescription: "Developer Suite uses the microphone path to capture stethoscope audio from a connected MedWand."

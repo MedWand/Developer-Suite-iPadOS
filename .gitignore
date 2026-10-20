@@ -1,0 +1,19 @@
+# Xcode / build artifacts
+.DS_Store
+*.xcuserstate
+xcuserdata/
+DerivedData/
+.build/
+.swiftpm/
+build/
+node_modules/
+__pycache__/
+
+# Real dev/test license + matching public key — never committed. See
+# SampleSwiftUIApp/SampleSwiftUIApp/License.swift.example for the
+# placeholder template a real checkout should start from.
+SampleSwiftUIApp/SampleSwiftUIApp/License.swift
+
+# Large local scratch space for XCFramework archives before they're
+# committed/released deliberately.
+/scratch/

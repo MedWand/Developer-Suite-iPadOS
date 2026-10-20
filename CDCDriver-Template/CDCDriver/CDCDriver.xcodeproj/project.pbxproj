@@ -27,7 +27,7 @@
 		5C3294C82BF2C61E00126F3C /* CDCDriver iPadOS Release.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "CDCDriver iPadOS Release.entitlements"; sourceTree = "<group>"; };
 		5C3294C92BF2C70300126F3C /* CDCDriver Release.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "CDCDriver Release.entitlements"; sourceTree = "<group>"; };
 		5C8147673020DBC0004F44FD /* CDCDriver-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CDCDriver-Info.plist"; sourceTree = "<group>"; };
-		5CAA441A2CF785150043388B /* com.medwand.FunctionalTest.CDCDriver.dext */ = {isa = PBXFileReference; explicitFileType = "wrapper.driver-extension"; includeInIndex = 0; path = com.medwand.FunctionalTest.CDCDriver.dext; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CAA441A2CF785150043388B /* com.example.YourApp.CDCDriver.dext */ = {isa = PBXFileReference; explicitFileType = "wrapper.driver-extension"; includeInIndex = 0; path = com.example.YourApp.CDCDriver.dext; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3F96EF2996ECC200825F9B /* Utilities.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Utilities.cpp; sourceTree = "<group>"; };
 		9D3F96F02996ECC200825F9B /* Utilities.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Utilities.hpp; sourceTree = "<group>"; };
 		9D5D16E0299816F8008B461D /* CDCDriverClient.iig */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.iig; path = CDCDriverClient.iig; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		9DD33899296A182800BF123B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5CAA441A2CF785150043388B /* com.medwand.FunctionalTest.CDCDriver.dext */,
+				5CAA441A2CF785150043388B /* com.example.YourApp.CDCDriver.dext */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,7 +168,7 @@
 			);
 			name = CDCDriver;
 			productName = MyUserUSBInterfaceDriver;
-			productReference = 5CAA441A2CF785150043388B /* com.medwand.FunctionalTest.CDCDriver.dext */;
+			productReference = 5CAA441A2CF785150043388B /* com.example.YourApp.CDCDriver.dext */;
 			productType = "com.apple.product-type.driver-extension";
 		};
 /* End PBXNativeTarget section */
@@ -235,7 +235,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4UU7YF3L7J;
+				DEVELOPMENT_TEAM = "";
 				DRIVERKIT_DEPLOYMENT_TARGET = 25.0;
 				ENABLE_CODE_COVERAGE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -247,8 +247,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "MedWand USB Driver";
 				INFOPLIST_KEY_OSBundleUsageDescription = "USB CDC ACM Driver";
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.medwand.FunctionalTest.CDCDriver;
-				PRODUCT_NAME = com.medwand.FunctionalTest.CDCDriver;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.YourApp.CDCDriver;
+				PRODUCT_NAME = com.example.YourApp.CDCDriver;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = driverkit;
@@ -267,7 +267,7 @@
 				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "CDCDriver/CDCDriver Release.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=driverkit*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				"DEVELOPMENT_TEAM[sdk=driverkit*]" = 4UU7YF3L7J;
+				"DEVELOPMENT_TEAM[sdk=driverkit*]" = "";
 				DRIVERKIT_DEPLOYMENT_TARGET = 25.0;
 				ENABLE_CODE_COVERAGE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -279,9 +279,9 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "MedWand USB Driver";
 				INFOPLIST_KEY_OSBundleUsageDescription = "USB CDC ACM Driver";
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.medwand.FunctionalTest.CDCDriver;
-				PRODUCT_NAME = com.medwand.FunctionalTest.CDCDriver;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=driverkit*]" = "MedWand SDK Functional Test CDCDrvier";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.YourApp.CDCDriver;
+				PRODUCT_NAME = com.example.YourApp.CDCDriver;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=driverkit*]" = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = driverkit;
 				SKIP_INSTALL = YES;
