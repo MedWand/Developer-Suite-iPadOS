@@ -59,13 +59,29 @@ final class StethoscopeViewModel: ObservableObject {
     }
 
     /// Sets the microphone mode, stopping a recording in progress first. On failure it shows an error and goes back to Off.
+    ///
+    /// Use this call to set the stethoscope mode without using the MedWand SDK audio stack.
+    /// You will be responsible for using your own audio stack to hear and capture the audio.
+    /// ```swift
+    /// medWandController.setStethoscopeMode(newMode)
+    /// ```
+    ///
+    /// Use this call to set the stethoscope mode which uses the MedWand SDK audio stack.
+    /// The MedWand SDK audio stack handles preview and capturing the audio.
+    /// ```swift
+    /// medWandController.setStethoscopeMode(newMode, nil)
+    /// ```
+    ///
     func selectMode(_ newMode: MicrophoneMode) {
         if actionState == .busy { stopCapture() }
         Task {
             do {
-                // `true` when the mode was set (including `.off`). This app does not use the live audio, so it
-                // never assigns `stethoscope.frameReady`; live audio is then read and dropped by the SDK.
-                guard try await controller.setStethoscopeMode(newMode) else {
+                // `true` when the mode was set (including `.off`). With a `speakerName` (here `nil`: the system's
+                // current output) the SDK also plays the stethoscope through the output, so the user hears it. The
+                // one-argument `setStethoscopeMode(_:)` would set only the filter, with no audio. This app does not use
+                // the live audio, so it never assigns `stethoscope.frameReady`; live audio is then read and dropped by
+                // the SDK.
+                guard try await controller.setStethoscopeMode(newMode, speakerName: nil) else {
                     mode = .off
                     statusMessage = "Error: could not set the stethoscope mode."
                     return
