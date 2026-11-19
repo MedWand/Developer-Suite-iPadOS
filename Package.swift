@@ -7,9 +7,7 @@ let package = Package(
     products: [
         .library(name: "MedWandSDK", targets: ["MedWandSDKGlue"])
     ],
-    dependencies: [
-        .package(url: "https://github.com/apple/swift-nio.git", from: "2.65.0")
-    ],
+    dependencies: [],
     targets: [
         .binaryTarget(name: "MedWandSDKBinary", path: "Frameworks/MedWandSDK.xcframework"),
         .binaryTarget(name: "MedWandLicenseBinary", path: "Frameworks/MedWandLicense.xcframework"),
@@ -21,8 +19,7 @@ let package = Package(
                 "MedWandSDKBinary",
                 "MedWandLicenseBinary",
                 "CDCDriverInterfaceBinary",
-                "CDCDriverInterfacePrivateBinary",
-                .product(name: "NIOCore", package: "swift-nio")
+                "CDCDriverInterfacePrivateBinary"
             ],
             path: "Sources/MedWandSDKGlue",
             swiftSettings: [.interoperabilityMode(.Cxx)]

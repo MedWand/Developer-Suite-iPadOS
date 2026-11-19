@@ -2,6 +2,7 @@ import Foundation
 import CoreGraphics
 import QuartzCore
 import MedWandSDK
+import os.log
 
 /// The composition root: owns the `MedWandController`, the connection lifecycle, and the selected workflow.
 ///
@@ -33,6 +34,8 @@ final class AppViewModel: ObservableObject {
     /// The SDK controller that every workflow talks to.
     let controller: MedWandController
 
+    let logger = Logger.init(subsystem: "SampleSwiftUIApp", category: "generic")
+
     /// `true` once the user has accepted the BETA notice. The app connects only after that.
     @Published var startupNoticeAccepted = false
     /// The workflow shown in the content area, or `nil` for the placeholder.
@@ -41,10 +44,18 @@ final class AppViewModel: ObservableObject {
     @Published var deviceState: MedWandDeviceState = .notConnected
     /// Text for the status bar and the connecting screen.
     @Published var statusMessage = "Starting…"
+    /// What the Windows sample shows after connecting: the app and the device, read once per connect. `nil` when not connected.
+    /// The main screen's placeholder shows ``DeviceInformation/text``.
+    @Published var deviceInformation: DeviceInformation?
     /// `true` after a complete connect and initialize; `false` again after ``disconnect()`` or an unplug.
     @Published var isConnected = false
-    /// A user-visible error, shown in red in the status bar, and with a Retry button on the connecting screen.
+    /// A failure while connecting, shown in red on the connecting screen with a Retry button. Errors the device reports
+    /// while connected go to ``deviceError`` instead.
     @Published var connectionError: String?
+    /// An error the device reported while connected (a sensor that would not start, a failed transmit), shown in red in
+    /// the main screen's status bar. It stays until the user's next action: any tap on the main screen, or selecting a
+    /// workflow. See ``dismissDeviceError()``.
+    @Published var deviceError: String?
 
     /// Which workflows the toolbar lets the user select. Set at the end of ``connectAndInitialize()``.
     @Published var toolbarEnabled: [Workflow: Bool] = [
@@ -111,25 +122,44 @@ final class AppViewModel: ObservableObject {
     ///
     /// The steps are: install the callbacks, `construct` (which checks the license), `connect`, `initialize`, and
     /// `configure`. Each step is checked. If one fails, ``connectionError`` is set and the sequence stops, which
-    /// leaves the Retry button on screen.
+    /// leaves the Retry button on screen. `connect` and `initialize` throw `.licenseInvalid` if the license is not
+    /// valid; every other failure shows only as a state the following check sees.
     func connectAndInitialize() async {
         installCallbacks()
 
         await controller.construct(license: mwSDKLicense, publicKey: mwSDKPublicKey)
         guard await controller.isLicenseValid else {
-            connectionError = "No valid license."
+            connectionError = "MedWand license is not valid."
             return
         }
 
         statusMessage = "Connecting to MedWand…"
-        await controller.connect()
+        do {
+            try await controller.connect()
+        } catch let error as MedWandDeviceError where error.code == .licenseInvalid {
+            connectionError = "MedWand license is not valid."
+            return
+        } catch {
+            connectionError = error.localizedDescription
+            return
+        }
+
         guard await controller.isConnected else {
             connectionError = "MedWand not found. Please connect your MedWand and try again."
             return
         }
 
         statusMessage = "Initializing MedWand…"
-        await controller.initialize()
+        do {
+            try await controller.initialize()
+        } catch let error as MedWandDeviceError where error.code == .licenseInvalid {
+            connectionError = "MedWand license is not valid."
+            return
+        } catch {
+            connectionError = error.localizedDescription
+            return
+        }
+
         guard await controller.isInitialized else {
             connectionError = "MedWand did not initialize."
             return
@@ -139,6 +169,11 @@ final class AppViewModel: ObservableObject {
         // making its own main-actor hop, so the app needs no callback or Task for the waveform.
         await controller.configure(ecgLayer: ECGLayerHandle(layer: ecgDisplayLayer))
         await stethoscopeViewModel.installRecordingCallback()
+
+        let information = await readDeviceInformation()
+        let licenseInfo = await controller.licenseInfo
+        logger.debug("License: \(licenseInfo)")
+        deviceInformation = information
 
         isConnected = true
         let canUseCamera = await controller.canUseCamera
@@ -150,7 +185,52 @@ final class AppViewModel: ObservableObject {
             .camera: canUseCamera && hasValidOtoscope,
             .ecg: await controller.hasValidEcg,
         ]
-        statusMessage = "Connected"
+        statusMessage = information.summary
+    }
+
+    /// Reads the app's and the device's details once, in the order and with the names the Windows sample uses
+    /// (`DeviceInformation()` and `GeneralStatus`). Windows' `IsBootloaderMode` and `LastFirmwareCheckDate` are left out: the
+    /// iPadOS SDK has no firmware subsystem. A value that is missing or blank reads "unknown".
+    private func readDeviceInformation() async -> DeviceInformation {
+        func shown(_ value: String?) -> String {
+            let trimmed = value?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            return trimmed.isEmpty ? "unknown" : trimmed
+        }
+        func bundle(_ key: String) -> String { shown(Bundle.main.object(forInfoDictionaryKey: key) as? String) }
+
+        let comPort = shown(await controller.comPort)
+        let vendorId = shown(await controller.vendorId)
+        let productId = shown(await controller.productId)
+        let deviceId = shown(await controller.deviceId)
+        let udi = shown(await controller.udi)
+        let firmware = await controller.firmwareVersion?.description ?? "unknown"
+        let generation = await controller.generation.displayName
+
+        let text = """
+        Application Information:
+        --------------------------------
+        Product: \(bundle("CFBundleDisplayName"))
+        Version: \(bundle("CFBundleShortVersionString"))
+        Build: \(bundle("CFBundleVersion"))
+
+        Device Information:
+        --------------------------------
+        ComPort: \(comPort)
+        VendorId: \(vendorId)
+        ProductId: \(productId)
+        DeviceId: \(deviceId)
+        UDI: \(udi)
+        DeviceState: \(await controller.deviceState)
+        IsConnected: \(await controller.isConnected)
+        IsInitialized: \(await controller.isInitialized)
+        InstalledFirmware: \(firmware)
+        Generation: \(generation)
+        Camera: \(shown(await controller.cameraModel))
+        """
+        return DeviceInformation(
+            text: text,
+            summary: "Device: \(comPort)/\(vendorId)/\(productId) | \(udi) | \(generation) v\(firmware)"
+        )
     }
 
     /// Ends the session: stops any active sensor, disconnects, and shuts the controller down.
@@ -171,6 +251,8 @@ final class AppViewModel: ObservableObject {
         await controller.shutdown()
 
         isConnected = false
+        deviceInformation = nil
+        deviceError = nil
         toolbarEnabled = toolbarEnabled.mapValues { _ in false }
         statusMessage = "Disconnected"
     }
@@ -189,13 +271,22 @@ final class AppViewModel: ObservableObject {
 
         selectedWorkflow = nil
         isConnected = false
+        deviceInformation = nil
+        deviceError = nil
         toolbarEnabled = toolbarEnabled.mapValues { _ in false }
         statusMessage = "MedWand disconnected."
         connectionError = "MedWand disconnected. Plug it back in and tap Retry."
     }
 
+    /// Clears the device error. Called on the user's next action, so a message about something that went wrong does not
+    /// stay on screen after things work again.
+    func dismissDeviceError() {
+        deviceError = nil
+    }
+
     /// Shows `workflow` (or the placeholder, for `nil`), deactivating the previous workflow first.
     func selectWorkflow(_ workflow: Workflow?) {
+        dismissDeviceError()
         deactivateCurrentWorkflow()
         selectedWorkflow = workflow
         activateWorkflow(workflow)
@@ -239,12 +330,14 @@ final class AppViewModel: ObservableObject {
         let (readingStates, readingStatesOut) = AsyncStream.makeStream(of: MedWandReadingState.self)
         let (readings, readingsOut) = AsyncStream.makeStream(of: MedWandReading.self)
         let (intensities, intensitiesOut) = AsyncStream.makeStream(of: Int.self)
+        let (licenseStates, licenseStatesOut) = AsyncStream.makeStream(of: LicenseState.self)
 
         controller.onDeviceStateChanged = { statesOut.yield($0) }
         controller.onDeviceError = { errorsOut.yield($0) }
         controller.onReadingStateChanged = { readingStatesOut.yield($0) }
         controller.onReadingReceived = { readingsOut.yield($0) }
         controller.onLedIntensityChanged = { intensitiesOut.yield($0) }
+        controller.onLicenseError = { licenseStatesOut.yield($0) }
 
         callbackTasks = [
             Task {
@@ -259,7 +352,10 @@ final class AppViewModel: ObservableObject {
             },
             Task {
                 for await error in errors {
-                    connectionError = error.message.isEmpty ? "\(error.code)" : error.message
+                    // While connecting, the error belongs to the connecting screen. Once connected it is shown in the
+                    // main screen's status bar until the user's next action.
+                    let message = error.message.isEmpty ? "\(error.code)" : error.message
+                    if isConnected { deviceError = message } else { connectionError = message }
                 }
             },
             Task {
@@ -280,6 +376,11 @@ final class AppViewModel: ObservableObject {
                     cameraViewModel.ledIntensity = intensity
                 }
             },
+            Task {
+                for await licenseState in licenseStates {
+                    logger.debug("LicenseError: \(licenseState)")
+                }
+            }
         ]
     }
 
@@ -290,6 +391,36 @@ final class AppViewModel: ObservableObject {
         case "Thermometer": thermometerViewModel.receive(reading)
         case "PulseOximeter": pulseOximeterViewModel.receive(reading)
         default: break
+        }
+    }
+}
+
+extension LicenseState: @retroactive CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .expired: "License is expired."
+        case .expiring: "License is expiring."
+        case .invalid: "License is invalid."
+        case .invalidFeature: "Invalid license feature."
+        }
+    }
+}
+
+/// The app and device details the Windows sample shows after connecting.
+struct DeviceInformation {
+    /// The multi-line block shown in the placeholder area.
+    let text: String
+    /// The one-line summary for the status bar: port, vendor and product, UDI, generation and firmware version.
+    let summary: String
+}
+
+extension MedWandGeneration {
+    /// "Generation 1", "Generation 2" or "unknown".
+    var displayName: String {
+        switch self {
+        case .generation1: "Generation 1"
+        case .generation2: "Generation 2"
+        case .unknown, .notReady: "unknown"
         }
     }
 }

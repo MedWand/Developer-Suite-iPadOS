@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Lists the app's Documents folder under the iPad's "Files" tab in Finder (iTunes file sharing). The generated
+	     Info.plist cannot carry this key, so it is merged in from this file (INFOPLIST_FILE in project.yml). -->
+	<key>UIFileSharingEnabled</key>
+	<true/>
+</dict>
+</plist>

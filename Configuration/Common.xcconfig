@@ -1,7 +1,5 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-DEVELOPMENT_TEAM =
-ORGANIZATION_IDENTIFIER = com.medwand
-
+// Signing defaults shared by the driver project. Edit `Driver.xcconfig`, not this file.
 CODE_SIGN_IDENTITY = Apple Development

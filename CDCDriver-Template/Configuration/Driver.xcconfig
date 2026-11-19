@@ -3,9 +3,24 @@
 
 #include "Common.xcconfig"
 
-PRODUCT_BUNDLE_IDENTIFIER = com.example.YourApp.CDCDriver
+// ===== The only two lines you need to edit =====
+
+// Your app's bundle identifier. The driver's identifier is this plus ".CDCDriver": the driver must be nested under
+// the app that embeds it.
+APP_BUNDLE_IDENTIFIER = com.example.YourApp
+
+// Your Apple Developer team identifier (ten characters, as shown in your Apple Developer account).
+DEVELOPMENT_TEAM =
+
+// ===== Everything below follows from those two lines; you do not need to edit it =====
+
+PRODUCT_BUNDLE_IDENTIFIER = $(APP_BUNDLE_IDENTIFIER).CDCDriver
+PRODUCT_NAME = $(PRODUCT_BUNDLE_IDENTIFIER)
+
+// Empty means Automatic signing. Set a profile name only if you sign manually.
+PROVISIONING_PROFILE_SPECIFIER =
 
 CODE_SIGN_ENTITLEMENTS = CDCDriver/CDCDriver iPadOS.entitlements
 CODE_SIGN_ENTITLEMENTS[sdk=macosx*] = CDCDriver/CDCDriver.entitlements
-
-PROVISIONING_PROFILE_SPECIFIER[sdk=driverkit*] =
+CODE_SIGN_ENTITLEMENTS[config=Release] = CDCDriver/CDCDriver iPadOS Release.entitlements
+CODE_SIGN_ENTITLEMENTS[config=Release][sdk=macosx*] = CDCDriver/CDCDriver Release.entitlements

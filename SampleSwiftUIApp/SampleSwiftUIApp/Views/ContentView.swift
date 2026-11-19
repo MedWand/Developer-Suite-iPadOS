@@ -13,6 +13,7 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var appViewModel: AppViewModel
     @Environment(\.scenePhase) private var scenePhase
+    @State var showExitConfirmation: Bool = false
 
     var body: some View {
         Group {
@@ -68,6 +69,9 @@ struct ContentView: View {
             statusBar
         }
         .background(AndroidPalette.controlDark)
+        // The next tap anywhere on the main screen is "the next user action": it clears a device error. An error caused
+        // by a tap arrives after it, so it appears and then stays until the following tap.
+        .simultaneousGesture(TapGesture().onEnded { appViewModel.dismissDeviceError() })
     }
 
     /// The top bar: the logo, one icon button per ``Workflow``, a divider, and Exit on the right.
@@ -98,7 +102,16 @@ struct ContentView: View {
             Spacer()
 
             toolbarButton(iconName: "exit_off", enabled: appViewModel.isConnected) {
-                Task { await appViewModel.disconnect() }
+                showExitConfirmation = true
+            }
+            .alert("Are you sure you want to exit?", isPresented: $showExitConfirmation) {
+                Button("YES", role: .destructive) {
+                    Task {
+                        await appViewModel.disconnect()
+                        exit(0)
+                    }
+                }
+                Button("NO", role: .cancel) {}
             }
         }
         .frame(height: 122)
@@ -136,23 +149,34 @@ struct ContentView: View {
         }
     }
 
-    // Shown in the content area before any workflow is selected.
+    // Shown in the content area before any workflow is selected: the hint, and the app and device details the Windows
+    // sample shows. The text can be selected and copied.
     private var placeholderView: some View {
-        Text("Select a workflow above")
-            .font(.system(size: 24))
+        ScrollView {
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Select a workflow above")
+                    .font(.system(size: 24))
+                if let information = appViewModel.deviceInformation {
+                    Text(information.text)
+                        .font(.system(size: 16, design: .monospaced))
+                        .textSelection(.enabled)
+                }
+            }
             .foregroundStyle(.black)
-            .multilineTextAlignment(.leading)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .frame(maxWidth: .infinity, alignment: .topLeading)
             .padding(15)
-            .background(AndroidPalette.actionButtonDisabled)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(AndroidPalette.actionButtonDisabled)
     }
 
-    /// A single line at the bottom of the main screen: the connection error, in red, if there is one; otherwise the
-    /// status message.
+    /// A single line at the bottom of the main screen: the connection error or the device error, in red, if there is one;
+    /// otherwise the status message.
     private var statusBar: some View {
         HStack {
-            Text(appViewModel.connectionError ?? appViewModel.statusMessage)
-                .foregroundStyle(appViewModel.connectionError == nil ? AndroidPalette.control : .red)
+            let error = appViewModel.connectionError ?? appViewModel.deviceError
+            Text(error ?? appViewModel.statusMessage)
+                .foregroundStyle(error == nil ? AndroidPalette.control : .red)
             Spacer()
         }
         .font(.system(size: 16))
